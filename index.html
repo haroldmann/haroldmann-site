@@ -259,26 +259,34 @@
   </footer>
 
 </main>
-<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 <script>
   (function () {
-    // Delegate on document in the CAPTURE phase so this survives ck.5.js
-    // re-binding/replacing the form node on init. Only fires on a valid submit
-    // (native validation gates the submit event).
+    // Self-handle the free-chapter subscription so behavior is deterministic and
+    // race-free (no dependency on an external script loading before the first
+    // submit). POSTs straight to Kit's form endpoint (CORS-enabled) and reveals
+    // the on-screen confirmation regardless of the response.
+    var form = document.getElementById('chapter-form');
+    if (!form) return;
+    var endpoint = form.getAttribute('action');
+    var revealed = false;
     function reveal() {
-      var form = document.getElementById('chapter-form');
-      if (form) form.style.display = 'none';
+      if (revealed) return;
+      revealed = true;
+      form.style.display = 'none';
       var cap = document.getElementById('chapter-caption');
       if (cap) cap.style.display = 'none';
       var ok = document.getElementById('chapter-success');
       if (ok) ok.style.display = 'block';
     }
-    document.addEventListener('submit', function (e) {
-      var t = e.target;
-      if (t && t.id === 'chapter-form') {
-        setTimeout(reveal, 400);
-      }
-    }, true);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var field = form.querySelector('input[name="email_address"]');
+      var data = new FormData();
+      data.append('email_address', field ? field.value : '');
+      fetch(endpoint, { method: 'POST', body: data })
+        .then(reveal, reveal);
+    });
   })();
 </script>
 </body>
