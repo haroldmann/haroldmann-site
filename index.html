@@ -36,7 +36,7 @@
       <p class="mt-6 text-lg text-ink/60 max-w-md">For leaders who want teams that improve without being told to.</p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="#chapter" class="bg-brand text-white font-semibold px-6 py-3 rounded-full hover:brightness-95 transition">Get the free chapter</a>
-        <a href="https://calendly.com/haroldmann" target="_blank" rel="noopener" class="border border-ink/20 font-semibold px-6 py-3 rounded-full hover:border-ink/50 transition">Book me to speak</a>
+        <a href="https://calendly.com/haroldmann/30min" target="_blank" rel="noopener" class="border border-ink/20 font-semibold px-6 py-3 rounded-full hover:border-ink/50 transition">Book me to speak</a>
       </div>
     </div>
     <img src="harold-cutout.png" alt="Harold Mann" class="rounded-3xl w-full aspect-square object-cover" />
@@ -262,19 +262,23 @@
 <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
 <script>
   (function () {
-    var form = document.getElementById('chapter-form');
-    if (!form) return;
-    form.addEventListener('submit', function () {
-      // Only fires when the email field is valid (native validation gates it).
-      // Let Kit's ck.5.js send the request, then reveal the confirmation.
-      setTimeout(function () {
-        form.style.display = 'none';
-        var cap = document.getElementById('chapter-caption');
-        if (cap) cap.style.display = 'none';
-        var ok = document.getElementById('chapter-success');
-        if (ok) ok.style.display = 'block';
-      }, 400);
-    });
+    // Delegate on document in the CAPTURE phase so this survives ck.5.js
+    // re-binding/replacing the form node on init. Only fires on a valid submit
+    // (native validation gates the submit event).
+    function reveal() {
+      var form = document.getElementById('chapter-form');
+      if (form) form.style.display = 'none';
+      var cap = document.getElementById('chapter-caption');
+      if (cap) cap.style.display = 'none';
+      var ok = document.getElementById('chapter-success');
+      if (ok) ok.style.display = 'block';
+    }
+    document.addEventListener('submit', function (e) {
+      var t = e.target;
+      if (t && t.id === 'chapter-form') {
+        setTimeout(reveal, 400);
+      }
+    }, true);
   })();
 </script>
 </body>
