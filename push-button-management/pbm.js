@@ -3,9 +3,9 @@
 
   /* ------------------------------------------------------------------
      LAUNCH SWITCH
-     Before launch, leave these empty: each format shows "Coming soon".
+     Before launch, leave these empty: the page shows the notify form.
      At launch, paste the store link for each format that is on sale.
-     That format becomes a buy button, the hero label changes to
+     Each one becomes a buy button in place of the notify form, the hero label changes to
      "Available now", and a "Buy the book" button appears in the hero.
      ------------------------------------------------------------------ */
   var BUY = {
@@ -14,11 +14,11 @@
     ebook: ''
   };
 
+  var row = document.getElementById('buy-row');
   var anyLive = false;
   Object.keys(BUY).forEach(function (name) {
     var url = BUY[name];
-    var card = document.querySelector('[data-format="' + name + '"]');
-    if (!url || !card) return;
+    if (!url || !row) return;
     anyLive = true;
     var a = document.createElement('a');
     a.className = 'btn';
@@ -26,32 +26,37 @@
     a.target = '_blank';
     a.rel = 'noopener';
     a.textContent = 'Buy the ' + name;
-    var status = card.querySelector('.status');
-    status.textContent = '';
-    status.appendChild(a);
+    row.appendChild(a);
   });
   if (anyLive) {
+    row.hidden = false;
+    var nf = document.getElementById('notify-form');
+    if (nf) nf.hidden = true;
     document.querySelectorAll('[data-launch-label]').forEach(function (el) { el.textContent = 'Available now'; });
     document.querySelectorAll('[data-launch-buy]').forEach(function (el) { el.hidden = false; });
-    document.querySelectorAll('[data-launch-hide]').forEach(function (el) { el.hidden = true; });
+    document.querySelectorAll('[data-launch-swap]').forEach(function (el) { el.textContent = el.getAttribute('data-launch-swap'); });
   }
 
   /* ------------------------------------------------------------------
-     ONE PRESS scroll scene
+     COVER scroll scene
      Scroll position maps 1:1 to --p (0 to 1) on the section; every part
      of the scene is derived from --p in CSS, so it reverses and stops
      exactly with the scroll. Reduced motion keeps the static layout.
      ------------------------------------------------------------------ */
-  var press = document.querySelector('.press');
+  var press = document.querySelector('.story');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   var supported = window.CSS && CSS.supports && CSS.supports('opacity', 'clamp(0, calc(1 * 2), 1)') && CSS.supports('position', 'sticky');
   var ticking = false;
+  var bar = document.querySelector('.bar');
 
   function measure() {
     ticking = false;
     var r = press.getBoundingClientRect();
-    var span = r.height - window.innerHeight;
-    var p = span > 0 ? Math.min(1, Math.max(0, -r.top / span)) : 1;
+    // The cover is pinned just below the header. The animation runs over the pinned
+    // distance, capped at about two screens so it never feels slow on long pages.
+    var barH = bar ? bar.offsetHeight : 0;
+    var span = Math.min((r.height - (window.innerHeight - barH)) * 0.85, window.innerHeight * 2);
+    var p = span > 0 ? Math.min(1, Math.max(0, (barH - r.top) / span)) : 1;
     press.style.setProperty('--p', p.toFixed(4));
   }
   function onScroll() {
@@ -81,10 +86,9 @@
      Sample signup (Kit). Posts straight to the form endpoint, same
      approach as the home page. No ck.js script on purpose.
      ------------------------------------------------------------------ */
-  var form = document.getElementById('sample-form');
-  if (form) {
-    var err = document.getElementById('sample-err');
-    var done = document.getElementById('sample-done');
+  function wire(form) {
+    var err = form.querySelector('.err');
+    var done = form.parentNode.querySelector('.form-done');
     var btn = form.querySelector('button');
     var label = btn.textContent;
     form.addEventListener('submit', function (e) {
@@ -105,11 +109,15 @@
         .catch(function () {
           btn.disabled = false;
           btn.textContent = label;
-          err.textContent = 'That didn’t go through. Please try again.';
+          err.textContent = 'That didn\u2019t go through. Please try again.';
           err.hidden = false;
         });
     });
   }
+  ['sample-form', 'notify-form'].forEach(function (id) {
+    var f = document.getElementById(id);
+    if (f) wire(f);
+  });
 
   /* Copy link */
   var copy = document.getElementById('copy-link');
