@@ -57,7 +57,14 @@
     var barH = bar ? bar.offsetHeight : 0;
     var span = Math.min((r.height - (window.innerHeight - barH)) * 0.85, window.innerHeight * 2);
     var p = span > 0 ? Math.min(1, Math.max(0, (barH - r.top) / span)) : 1;
-    press.style.setProperty('--p', p.toFixed(4));
+    var st = press.style;
+    st.setProperty('--p', p.toFixed(4));
+    // Three out-of-phase waves keep the keys moving as you scroll; --sh sweeps the sheen.
+    var t = p * Math.PI * 2 * 3.5;
+    st.setProperty('--wa', (0.5 + 0.5 * Math.sin(t)).toFixed(3));
+    st.setProperty('--wb', (0.5 + 0.5 * Math.sin(t + 2.094)).toFixed(3));
+    st.setProperty('--wc', (0.5 + 0.5 * Math.sin(t + 4.189)).toFixed(3));
+    st.setProperty('--sh', ((p * 5) % 1).toFixed(3));
   }
   function onScroll() {
     if (ticking) return;
