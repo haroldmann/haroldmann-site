@@ -48,10 +48,26 @@
               <div class="k hot" style="--d:8;--s:.7;--w:var(--wc)"><div class="cap"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 8v8M12 8v5M15 8v8"/></svg></div><span class="dot"></span></div>
               <div class="k" style="--d:4;--s:.54;--w:var(--wb)"><div class="cap"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H11l-4 3v-3H4z"/></svg></div></div>
             </div>
-            <div class="hand" aria-hidden="true"><svg viewBox="0 0 64 84">
-              <g class="o"><rect x="20" y="3" width="14" height="46" rx="7"/><rect x="33" y="27" width="11" height="26" rx="5.5"/><rect x="43" y="30" width="10" height="24" rx="5"/><rect x="52" y="34" width="9" height="22" rx="4.5"/><rect x="18" y="40" width="43" height="38" rx="13"/><rect x="6" y="38" width="14" height="32" rx="7" transform="rotate(-28 14 66)"/></g>
-              <g class="f"><rect x="20" y="3" width="14" height="46" rx="7"/><rect x="33" y="27" width="11" height="26" rx="5.5"/><rect x="43" y="30" width="10" height="24" rx="5"/><rect x="52" y="34" width="9" height="22" rx="4.5"/><rect x="18" y="40" width="43" height="38" rx="13"/><rect x="6" y="38" width="14" height="32" rx="7" transform="rotate(-28 14 66)"/></g>
-              <path class="l" d="M33.500 41v9M43.500 42v8M52.500 44v7"/>
+            <div class="hand" aria-hidden="true"><svg viewBox="0 0 200 320">
+              <defs>
+                <linearGradient id="skA" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#F6D3B8"/><stop offset=".55" stop-color="#EBBE9C"/><stop offset="1" stop-color="#CF9A76"/></linearGradient>
+                <linearGradient id="skB" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F2CBAC"/><stop offset="1" stop-color="#D7A380"/></linearGradient>
+                <radialGradient id="skC" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#F5D0B3"/><stop offset=".6" stop-color="#E6B893"/><stop offset="1" stop-color="#C48D69"/></radialGradient>
+                <linearGradient id="nail" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#FFF1EA"/><stop offset="1" stop-color="#F3D2C4"/></linearGradient>
+                <linearGradient id="slv" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#2B313A"/><stop offset="1" stop-color="#14171C"/></linearGradient>
+              </defs>
+              <rect x="66" y="246" width="118" height="90" rx="16" fill="url(#slv)"/>
+              <rect x="60" y="232" width="130" height="30" rx="11" fill="#F7F5F0" stroke="rgba(21,24,29,.18)"/>
+              <path d="M64 176 C42 166 24 146 24 126 C24 111 40 106 50 119 C58 130 66 142 80 152Z" fill="url(#skB)" stroke="rgba(120,70,40,.35)"/>
+              <path d="M58 152 C52 122 62 104 86 100 L152 108 C174 112 184 132 182 162 L178 240 L72 240 C62 212 60 182 58 152Z" fill="url(#skC)" stroke="rgba(120,70,40,.35)"/>
+              <rect x="152" y="98" width="28" height="56" rx="14" fill="url(#skA)" stroke="rgba(120,70,40,.35)"/>
+              <rect x="124" y="88" width="31" height="60" rx="15.500" fill="url(#skA)" stroke="rgba(120,70,40,.35)"/>
+              <rect x="92" y="82" width="33" height="62" rx="16.500" fill="url(#skA)" stroke="rgba(120,70,40,.35)"/>
+              <path d="M97 132 q11 8 23 0 M129 136 q10 7 21 0 M156 142 q9 6 19 0" fill="none" stroke="rgba(120,70,40,.35)" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="56" y="8" width="35" height="140" rx="17.500" fill="url(#skA)" stroke="rgba(120,70,40,.35)"/>
+              <rect x="62.500" y="13" width="22" height="25" rx="10" fill="url(#nail)" stroke="rgba(150,90,70,.35)"/>
+              <path d="M62 72 q11.500 5 23 0 M62 78 q11.500 4 23 0 M63 110 q11 5 21 0" fill="none" stroke="rgba(120,70,40,.3)" stroke-width="1.300" stroke-linecap="round"/>
+              <path d="M84 20 C89 50 89 100 86 140" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="3" stroke-linecap="round" opacity="0"/>
             </svg></div>
           </div>
 
@@ -96,10 +112,10 @@
 
         <!-- 2. THE PROBLEM AND THE PROMISE -->
         <section class="chunk">
-          <h2>Your inbox sorts by time. Your work doesn&rsquo;t.</h2>
+          <h2>Inboxes sort by time. Your work doesn&rsquo;t.</h2>
           <ul class="points">
-            <li>Every tool you use shows you what came in last, not what matters most.</li>
-            <li>So you check, refresh, and make the same small decisions all day.</li>
+            <li>Most of your tools sort by date, not by importance.</li>
+            <li>If you&rsquo;re playing whack-a-mole all day with your lists, you&rsquo;re not winning.</li>
             <li>This book gives every message one owner and one press. Then it stays out of sight until you need it.</li>
           </ul>
           <blockquote class="quote">
@@ -117,9 +133,9 @@
           <span class="eyebrow"><i></i>What&rsquo;s inside</span>
           <h2 style="margin-top:.7rem">The system in three ideas</h2>
           <ol class="three">
-            <li><span class="num">1</span><div><h3>Labels, not folders</h3><p>Tag a message with who owns it, then archive it. When you can pull it back in a second, it doesn&rsquo;t need to sit in front of you.</p></div></li>
-            <li><span class="num">2</span><div><h3>Buttons are decisions</h3><p>Buttons are organized by the kind of work you&rsquo;re doing, not by app. Your hand learns where to go.</p></div></li>
-            <li><span class="num">3</span><div><h3>One owner per item</h3><p>Every item gets one responsible person. Others can help, but everyone knows who has the ball.</p></div></li>
+            <li><span class="num">1</span><div><h3>Labels, not folders</h3><p>Tag messages by owner: they archive and return only when you need them.</p></div></li>
+            <li><span class="num">2</span><div><h3>Buttons are decisions</h3><p>Buttons are organized by the kind of work you&rsquo;re doing, not by app. Build your own muscle memory based on how you like to manage.</p></div></li>
+            <li><span class="num">3</span><div><h3>Have meetings prep automatically</h3><p>Combine summaries, lists and meeting notes into a single button press.</p></div></li>
           </ol>
         </section>
       </div>

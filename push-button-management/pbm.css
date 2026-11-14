@@ -51,8 +51,11 @@ h3{font-size:1.125rem;line-height:1.3;letter-spacing:-.01em;font-weight:700}
 .story{--p:1;--wa:0;--wb:0;--wc:0;--sh:0}
 .story-art{padding:2rem 0 1rem}
 .art-stage{--cw:min(62vw,15rem);position:relative}
-.cover-wrap{position:relative;width:var(--cw);aspect-ratio:2/3;margin:0 auto}
-.cover{width:100%;height:100%;border-radius:.4rem;box-shadow:0 1px 2px rgba(0,0,0,.12),0 24px 48px -12px rgba(0,0,0,.28)}
+.cover-wrap{position:relative;isolation:isolate;width:var(--cw);aspect-ratio:2/3;margin:0 auto}
+/* a physical book: page block peeking out on the right and bottom, a soft spine, and a deep cast shadow */
+.cover-wrap::before{content:"";position:absolute;z-index:-1;inset:1.1% -2.4% -1.3% 2%;border-radius:.15rem .5rem .5rem .15rem;background:repeating-linear-gradient(90deg,#FDFCFA 0 1px,#D8D2C5 1px 2.5px) right/3.2% 100% no-repeat,#E2DCCF;box-shadow:0 calc(var(--cw) * .012) calc(var(--cw) * .02) rgba(21,24,29,.22),calc(var(--cw) * .05) calc(var(--cw) * .16) calc(var(--cw) * .2) calc(var(--cw) * -.05) rgba(21,24,29,.5),calc(var(--cw) * .02) calc(var(--cw) * .06) calc(var(--cw) * .08) calc(var(--cw) * -.03) rgba(21,24,29,.35)}
+.cover-wrap::after{content:"";position:absolute;inset:0;border-radius:.2rem .35rem .35rem .2rem;pointer-events:none;background:linear-gradient(90deg,rgba(21,24,29,.16),rgba(21,24,29,.02) 2.2%,rgba(255,255,255,.28) 3.6%,rgba(255,255,255,0) 7%,rgba(255,255,255,0) 96%,rgba(21,24,29,.06));box-shadow:inset 0 0 0 1px rgba(21,24,29,.05)}
+.cover{width:100%;height:100%;border-radius:.2rem .35rem .35rem .2rem}
 
 /* live keys drawn exactly over the printed keypad (positions measured from the cover art) */
 .pad{--pw:calc(var(--cw) * .629);position:absolute;left:18.55%;top:45.3%;width:var(--pw);display:grid;grid-template-columns:repeat(3,1fr);gap:calc(var(--pw) * .0495)}
@@ -73,14 +76,11 @@ h3{font-size:1.125rem;line-height:1.3;letter-spacing:-.01em;font-weight:700}
 .sheen{position:absolute;inset:-40% 0;width:55%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));opacity:var(--v);transform:translateX(calc(var(--sh) * 420% - 160%)) skewX(-12deg)}
 
 /* the hand: fades in, presses the center key, fades out. Fingertip sits on the key's center. */
-.hand{--h1:clamp(0,calc((var(--p) - .06) * 18),1);--dn:clamp(0,calc((var(--p) - .12) * 33),1);--up:clamp(0,calc((var(--p) - .16) * 33),1);--h2:clamp(0,calc((var(--p) - .18) * 16),1);
-  position:absolute;left:50%;top:66.3%;width:calc(var(--cw) * .3);margin:calc(var(--cw) * -.012) 0 0 calc(var(--cw) * -.126);pointer-events:none;
-  opacity:calc(var(--h1) * (1 - var(--h2)));transform-origin:42% 4%;
-  transform:translate(calc((1 - var(--h1) + var(--h2)) * var(--cw) * .1),calc((1 - var(--h1) + var(--h2)) * var(--cw) * .14 + (var(--dn) - var(--up)) * var(--cw) * .014 - (1 - var(--dn) + var(--up)) * var(--cw) * .012)) rotate(-20deg)}
-.hand svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 .5rem .6rem rgba(21,24,29,.28))}
-.hand .o *{fill:var(--ink);stroke:var(--ink);stroke-width:4.5;stroke-linejoin:round}
-.hand .f *{fill:#FBFAF7}
-.hand .l{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;opacity:.45}
+.hand{--h1:clamp(0,calc((var(--p) - .05) * 16),1);--dn:clamp(0,calc((var(--p) - .12) * 33),1);--up:clamp(0,calc((var(--p) - .16) * 33),1);--h2:clamp(0,calc((var(--p) - .18) * 14),1);
+  position:absolute;z-index:3;left:50%;top:66.3%;width:calc(var(--cw) * .62);margin:calc(var(--cw) * -.03) 0 0 calc(var(--cw) * -.226);pointer-events:none;
+  opacity:calc(var(--h1) * (1 - var(--h2)));transform-origin:36.5% 3%;
+  transform:translate(calc((1 - var(--h1) + var(--h2)) * var(--cw) * .22),calc((1 - var(--h1) + var(--h2)) * var(--cw) * .3 + (var(--dn) - var(--up)) * var(--cw) * .016 - (1 - var(--dn) + var(--up)) * var(--cw) * .02)) rotate(-24deg) scale(calc(1.04 - (var(--dn) - var(--up)) * .04))}
+.hand svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(calc(var(--cw) * -.02) calc(var(--cw) * .05) calc(var(--cw) * .05) rgba(21,24,29,.38))}
 .story:not(.is-live) .hand{display:none}
 
 /* callout panels */
@@ -117,7 +117,6 @@ h3{font-size:1.125rem;line-height:1.3;letter-spacing:-.01em;font-weight:700}
 .three li{background:var(--tile);border-radius:1.25rem;padding:1.4rem;display:flex;gap:1.1rem;align-items:flex-start}
 .three p{color:var(--muted);margin-top:.3rem;font-size:.975rem}
 .num{flex:none;display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:.65rem;background:#fff;border:1px solid var(--line);font-weight:700;font-size:.9rem;color:var(--muted)}
-.three li:nth-child(2) .num{background:var(--key);color:#fff;border-color:var(--key);box-shadow:0 3px 0 var(--key-side)}
 
 /* Live mode (JS adds .is-live when motion is allowed): the cover stays put and scroll drives --p */
 .story.is-live .panel{--in:clamp(0,calc((var(--p) - var(--a)) * 14),1);--out:clamp(0,calc((var(--b) - var(--p)) * 14),1)}
@@ -154,7 +153,8 @@ h3{font-size:1.125rem;line-height:1.3;letter-spacing:-.01em;font-weight:700}
 
 /* sections after the story */
 .section{padding:5rem 0;border-top:1px solid var(--line)}
-.toc{margin-top:2.5rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1.75rem}
+.toc{margin-top:2.5rem;display:grid;grid-template-columns:repeat(5,auto);justify-content:space-between;gap:1.5rem}
+@media (min-width:60.01rem){.toc li,.toc b{white-space:nowrap}}
 .toc h3{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);font-weight:700}
 .toc b{display:block;font-size:1rem;margin:.3rem 0 .6rem;letter-spacing:-.01em}
 .toc li{font-size:.9rem;color:var(--muted);padding:.2rem 0}
