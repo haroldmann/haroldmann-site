@@ -1,6 +1,6 @@
 /* Push Button Management book page. Standalone stylesheet (not the home page's Tailwind). */
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
 body,h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
 ul,ol{padding:0;list-style:none}
 img{display:block;max-width:100%;height:auto}
@@ -12,7 +12,7 @@ img{display:block;max-width:100%;height:auto}
   --muted:rgba(21,24,29,.64); --line:rgba(21,24,29,.1); --icon:#A8A296;
   --wrap:68rem; --gutter:1.5rem; --bar:3.5rem;
 }
-body{background:var(--cream);color:var(--ink);font:100%/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{overflow-x:clip;background:var(--cream);color:var(--ink);font:100%/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:.4rem}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
@@ -75,12 +75,12 @@ h3{font-size:1.125rem;line-height:1.3;letter-spacing:-.01em;font-weight:700}
 
 .sheen{position:absolute;inset:-40% 0;width:55%;background:linear-gradient(100deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));opacity:var(--v);transform:translateX(calc(var(--sh) * 420% - 160%)) skewX(-12deg)}
 
-/* the hand: fades in, presses the center key, fades out. Fingertip sits on the key's center. */
+/* the hand: fades in, presses the center key, fades out. The fingertip (68% across, 2.4% down the image) sits on the key's center. */
 .hand{--h1:clamp(0,calc((var(--p) - .05) * 16),1);--dn:clamp(0,calc((var(--p) - .12) * 33),1);--up:clamp(0,calc((var(--p) - .16) * 33),1);--h2:clamp(0,calc((var(--p) - .18) * 14),1);
-  position:absolute;z-index:3;left:50%;top:66.3%;width:calc(var(--cw) * .62);margin:calc(var(--cw) * -.03) 0 0 calc(var(--cw) * -.226);pointer-events:none;
-  opacity:calc(var(--h1) * (1 - var(--h2)));transform-origin:36.5% 3%;
-  transform:translate(calc((1 - var(--h1) + var(--h2)) * var(--cw) * .22),calc((1 - var(--h1) + var(--h2)) * var(--cw) * .3 + (var(--dn) - var(--up)) * var(--cw) * .016 - (1 - var(--dn) + var(--up)) * var(--cw) * .02)) rotate(-24deg) scale(calc(1.04 - (var(--dn) - var(--up)) * .04))}
-.hand svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(calc(var(--cw) * -.02) calc(var(--cw) * .05) calc(var(--cw) * .05) rgba(21,24,29,.38))}
+  position:absolute;z-index:3;left:50%;top:66.3%;width:calc(var(--cw) * .62);margin:calc(var(--cw) * -.05) 0 0 calc(var(--cw) * -.4216);pointer-events:none;
+  opacity:calc(var(--h1) * (1 - var(--h2)));transform-origin:68% 2.4%;
+  transform:translate(calc((1 - var(--h1) + var(--h2)) * var(--cw) * .2),calc((1 - var(--h1) + var(--h2)) * var(--cw) * .3 + (var(--dn) - var(--up)) * var(--cw) * .016 - (1 - var(--dn) + var(--up)) * var(--cw) * .02)) rotate(-16deg) scale(calc(1.04 - (var(--dn) - var(--up)) * .04))}
+.hand img{display:block;width:100%;height:auto;filter:drop-shadow(calc(var(--cw) * -.025) calc(var(--cw) * .05) calc(var(--cw) * .05) rgba(21,24,29,.4));-webkit-mask-image:linear-gradient(#000 72%,transparent 97%);mask-image:linear-gradient(#000 72%,transparent 97%)}
 .story:not(.is-live) .hand{display:none}
 
 /* callout panels */
@@ -131,6 +131,7 @@ h3{font-size:1.125rem;line-height:1.3;letter-spacing:-.01em;font-weight:700}
   .story.is-live .art-stage{--cw:inherit;--k:clamp(0,calc(var(--p) * 12),1)}
   .story.is-live .story-hero{padding-top:calc(var(--cw) * .75 + 1.75rem)}
   .story.is-live .cover-wrap{margin:0;transform-origin:top center;transform:translateX(calc((1 - var(--k)) * (min(100vw,var(--wrap)) - 2 * var(--gutter) - var(--cw)) / 2)) scale(calc(1.5 - var(--k) * .5))}
+  .story.is-live .hand img{-webkit-mask-image:linear-gradient(#000 30%,transparent 58%);mask-image:linear-gradient(#000 30%,transparent 58%)}
   .story.is-live .panels{position:absolute;left:calc(var(--cw) + .9rem);right:0;top:0;bottom:0;margin:0;max-width:19rem;display:grid;gap:0;align-items:center}
   .story.is-live .panel{grid-area:1/1;opacity:calc(var(--in) * var(--out));transform:translateX(calc((1 - var(--in)) * -14px))}
 }
