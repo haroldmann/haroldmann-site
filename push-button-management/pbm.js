@@ -3,9 +3,9 @@
 
   /* ------------------------------------------------------------------
      LAUNCH SWITCH
-     Before launch, leave these empty: the page shows the notify form.
+     Before launch, leave these empty: the buy section stays hidden.
      At launch, paste the store link for each format that is on sale.
-     Each one becomes a buy button in place of the notify form, the hero label changes to
+     Each one becomes a buy button in a section above the footer, the hero label changes to
      "Available now", and a "Buy the book" button appears in the hero.
      ------------------------------------------------------------------ */
   var BUY = {
@@ -29,12 +29,10 @@
     row.appendChild(a);
   });
   if (anyLive) {
-    row.hidden = false;
-    var nf = document.getElementById('notify-form');
-    if (nf) nf.hidden = true;
+    var wrap = document.getElementById('buy-wrap');
+    if (wrap) wrap.hidden = false;
     document.querySelectorAll('[data-launch-label]').forEach(function (el) { el.textContent = 'Available now'; });
     document.querySelectorAll('[data-launch-buy]').forEach(function (el) { el.hidden = false; });
-    document.querySelectorAll('[data-launch-swap]').forEach(function (el) { el.textContent = el.getAttribute('data-launch-swap'); });
   }
 
   /* ------------------------------------------------------------------
@@ -121,7 +119,7 @@
         });
     });
   }
-  ['sample-form', 'notify-form'].forEach(function (id) {
+  ['sample-form'].forEach(function (id) {
     var f = document.getElementById(id);
     if (f) wire(f);
   });

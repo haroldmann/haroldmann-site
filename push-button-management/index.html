@@ -48,7 +48,7 @@
               <div class="k hot" style="--d:8;--s:.7;--w:var(--wc)"><div class="cap"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 8v8M12 8v5M15 8v8"/></svg></div><span class="dot"></span></div>
               <div class="k" style="--d:4;--s:.54;--w:var(--wb)"><div class="cap"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H11l-4 3v-3H4z"/></svg></div></div>
             </div>
-            <div class="hand" aria-hidden="true"><img src="hand.png" width="440" height="1025" alt="" decoding="async"></div>
+            <div class="hand" aria-hidden="true"><img src="hand.png" width="360" height="839" alt="" decoding="async"></div>
           </div>
 
           <div class="panels" aria-label="What one press sets in motion">
@@ -177,23 +177,14 @@
       </div>
     </div>
   </section>
-  <!-- NOTIFY. At launch: fill in BUY in pbm.js and this section turns into buy buttons. -->
-  <div class="wrap">
+  <!-- BUY. Hidden before launch. At launch: fill in BUY in pbm.js and this section appears with buy buttons. -->
+  <div class="wrap" id="buy-wrap" hidden>
     <section class="notify" id="notify">
       <div>
-        <h2 data-launch-swap="It&rsquo;s out">Know the day it&rsquo;s out</h2>
-        <p data-launch-swap="Pick your format.">Paperback first, then hardcover and ebook. Leave your email and you&rsquo;ll get one note when you can buy it.</p>
+        <h2>It&rsquo;s out</h2>
+        <p>Pick your format.</p>
       </div>
-      <div>
-        <form id="notify-form" class="inline-form" data-kit-form="" novalidate>
-          <label for="n-email">Email</label>
-          <input id="n-email" name="email_address" type="email" autocomplete="email" inputmode="email" placeholder="Email" required>
-          <button class="btn" type="submit">Tell me when it&rsquo;s out</button>
-          <p class="err" role="alert" hidden></p>
-        </form>
-        <div class="form-done" role="status" tabindex="-1" hidden><b>You&rsquo;re on the list</b><p>You&rsquo;ll get one email the day the book is on sale.</p></div>
-        <div class="buy-row" id="buy-row" hidden></div>
-      </div>
+      <div class="buy-row" id="buy-row"></div>
     </section>
   </div>
 </main>
