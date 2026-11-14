@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Books by Harold Mann</title>
+<meta name="description" content="Two books from Harold Mann, both coming soon: Push Button Management and It's A Hard Job." />
+<link rel="canonical" href="https://haroldmann.com/books/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+/* Books page. Self-contained styles in the home page palette. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body,h1,h2,p,ul{margin:0}
+ul{padding:0;list-style:none}
+img{display:block;max-width:100%;height:auto}
+:root{--brand:#E5372A;--ink:#111;--cream:#F3EDE3;--muted:rgba(17,17,17,.6);--faint:rgba(17,17,17,.4)}
+body{font:100%/1.5 Inter,system-ui,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:.4rem}
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.nav::after{content:"";position:absolute;left:0;right:0;top:100%;height:.75rem;background:linear-gradient(rgba(255,255,255,.7),rgba(255,255,255,0));pointer-events:none}
+.nav .wrap{height:4rem;display:flex;align-items:center;justify-content:space-between}
+.mark{font-weight:800;letter-spacing:.15em;font-size:.875rem}
+.links{display:flex;gap:2rem;font-size:.875rem;font-weight:500;color:rgba(17,17,17,.7)}
+.links a:hover,.links a[aria-current]{color:var(--ink)}
+.links a[aria-current]{font-weight:700}
+.pill{background:var(--brand);color:#fff;font-size:.875rem;font-weight:600;padding:.625rem 1.25rem;border-radius:999px;transition:transform .1s ease-out,filter .15s ease-out}
+.pill:hover{filter:brightness(.95)}
+.pill:active,.card:active{transform:scale(.98)}
+.eyebrow{font-weight:700;letter-spacing:.18em;font-size:.72rem;text-transform:uppercase;color:var(--faint)}
+h1{font-weight:800;letter-spacing:-.035em;line-height:.98;font-size:clamp(2.75rem,7vw,4.25rem);margin-top:1rem;text-wrap:balance}
+.intro{padding:4.5rem 0 3rem}
+.intro p{margin-top:1.25rem;font-size:1.125rem;color:var(--muted);max-width:36rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;padding-bottom:5rem}
+.card{background:var(--cream);border-radius:1.5rem;padding:2.5rem;display:flex;flex-direction:column;transition:transform .1s ease-out}
+.card img{width:11rem;border-radius:.4rem;box-shadow:0 1px 2px rgba(0,0,0,.12),0 20px 40px -14px rgba(0,0,0,.32)}
+.status{margin-top:2rem;font-weight:700;letter-spacing:.18em;font-size:.72rem;text-transform:uppercase;color:var(--brand)}
+.card h2{font-weight:800;letter-spacing:-.03em;line-height:1.05;font-size:clamp(1.75rem,3.4vw,2.25rem);margin-top:.6rem}
+.card p{margin-top:.75rem;color:var(--muted);max-width:26rem}
+.card .go{margin-top:auto;padding-top:1.5rem;font-weight:600;color:var(--brand)}
+footer{border-top:1px solid rgba(0,0,0,.06)}
+footer .wrap{padding-top:3.5rem;padding-bottom:4rem;display:flex;flex-wrap:wrap;gap:2rem 4rem;justify-content:space-between;font-size:.875rem}
+footer ul{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;color:rgba(17,17,17,.7)}
+footer a:hover{color:var(--brand)}
+footer p{color:var(--faint);margin-top:1rem}
+@media (max-width:47.5rem){
+  .links{display:none}
+  .grid{grid-template-columns:1fr}
+  .card{padding:1.75rem}
+  .intro{padding:3rem 0 2rem}
+}
+@media (prefers-reduced-motion:reduce){.pill,.card{transition:none}}
+@media (prefers-reduced-transparency:reduce){.nav{background:#fff;-webkit-backdrop-filter:none;backdrop-filter:none}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <nav class="wrap">
+    <a class="mark" href="/">HAROLD MANN</a>
+    <div class="links">
+      <a href="/#framework">Philosophy</a>
+      <a href="/#framework">Framework</a>
+      <a href="/#speaking">Speaking</a>
+      <a href="/#media">Media</a>
+      <a href="/books/" aria-current="page">Books</a>
+    </div>
+    <a class="pill" href="/#chapter">Get the free chapter</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div class="eyebrow">The books</div>
+    <h1>Two books. Both on the way.</h1>
+    <p>One is about removing friction from your own day. The other is about the people who absorb that friction for a living.</p>
+  </section>
+
+  <section class="grid">
+    <a class="card" href="/push-button-management/">
+      <img src="/push-button-management/pbm-cover.jpg" width="1200" height="1800" alt="Push Button Management book cover" />
+      <div class="status">Coming soon</div>
+      <h2>Push Button Management</h2>
+      <p>You run your day, not the other way around. Automate your routine tasks with one press.</p>
+      <span class="go">See the book and get a free sample &rarr;</span>
+    </a>
+    <a class="card" href="/#chapter">
+      <img src="/book-cover-DyW65N5H.jpg" width="1040" height="1550" alt="It's A Hard Job book cover" />
+      <div class="status">Coming soon</div>
+      <h2>It&rsquo;s A Hard Job</h2>
+      <p>How to hold the line with a client without blowing up the relationship. The part of IT nobody trains you for.</p>
+      <span class="go">Get the free chapter &rarr;</span>
+    </a>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="mark">HAROLD MANN</div>
+      <p>&copy; 2026 Harold Mann. All rights reserved.</p>
+    </div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#speaking">Speaking</a></li>
+      <li><a href="/#media">Media</a></li>
+      <li><a href="/books/">Books</a></li>
+      <li><a href="mailto:hmann@mann.com">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>

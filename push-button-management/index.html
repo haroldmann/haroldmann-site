@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Push Button Management, a book by Harold Mann</title>
+<meta name="description" content="You run your day, not the other way around. Automate your routine tasks with one press. Coming soon. Get a free sample chapter.">
+<link rel="canonical" href="https://haroldmann.com/push-button-management/">
+<meta property="og:type" content="book">
+<meta property="og:title" content="Push Button Management, a book by Harold Mann">
+<meta property="og:description" content="You run your day, not the other way around. Coming soon. Get a free sample chapter.">
+<meta property="og:url" content="https://haroldmann.com/push-button-management/">
+<meta property="og:image" content="https://haroldmann.com/push-button-management/pbm-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#E9E3D7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pbm.css">
+</head>
+<body>
+<a class="skip" href="#sample">Skip to the free sample</a>
+
+<header class="bar">
+  <div class="wrap">
+    <nav class="bar-nav"><a href="/">&larr; haroldmann.com</a><a href="/books/">Books</a></nav>
+  </div>
+</header>
+
+<main>
+  <!-- STORY: the cover stays in view and its center key presses as you scroll.
+       Scroll position drives --p on .story; everything else is derived in CSS.
+       Without JS or with reduced motion it is a plain static layout. -->
+  <div class="wrap">
+    <div class="story" id="top">
+      <div class="story-art">
+        <div class="art-stage">
+          <div class="cover-wrap">
+            <img class="cover" src="pbm-cover.jpg" width="1200" height="1800" alt="Push Button Management book cover: a keypad of nine keys with the center key lit orange">
+            <div class="pad" aria-hidden="true">
+              <div class="k" style="--d:4;--s:.2;--o:.4;--w:var(--wa)"><div class="cap"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.500 7-6.500s7 2.500 7 6.500"/></svg></div><span class="dot"></span></div>
+              <div class="k hot" style="--d:8;--s:.46;--w:var(--wb)"><div class="cap"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H11l-4 3v-3H4z"/></svg></div><span class="dot"></span></div>
+              <div class="k" style="--d:2;--s:.34;--w:var(--wc)"><div class="cap"><svg viewBox="0 0 24 24"><path d="M3 6h6l2 2h10v11H3z"/></svg></div></div>
+              <div class="k hot" style="--d:8;--s:.2;--w:var(--wb)"><div class="cap"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg></div><span class="dot"></span></div>
+              <div class="k lit"><div class="glow"></div><div class="base"></div><div class="cap"><i class="sheen"></i></div></div>
+              <div class="k" style="--d:5;--s:.4;--o:.4;--w:var(--wc)"><div class="cap"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 3-6.200M4 4v4h4M12 8v4l3 2"/></svg></div><span class="dot"></span></div>
+              <div class="k" style="--d:-2;--s:.28;--w:var(--wa)"><div class="cap"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.300"/><path d="M3 19c0-3.500 2.500-5.500 6-5.500s6 2 6 5.500M16 13.500c3 0 5 1.800 5 5"/></svg></div></div>
+              <div class="k hot" style="--d:8;--s:.7;--w:var(--wc)"><div class="cap"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 8v8M12 8v5M15 8v8"/></svg></div><span class="dot"></span></div>
+              <div class="k" style="--d:4;--s:.54;--w:var(--wb)"><div class="cap"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H11l-4 3v-3H4z"/></svg></div></div>
+            </div>
+            <div class="hand" aria-hidden="true"><img src="hand.png" width="360" height="839" alt="" decoding="async"></div>
+          </div>
+
+          <div class="panels" aria-label="What one press sets in motion">
+            <article class="panel p-notes" style="--a:.24;--b:.48">
+              <header><svg viewBox="0 0 24 24"><path d="M6 4h12v16H6zM9 9h6M9 13h6"/></svg>Notes</header>
+              <h3>To do today</h3>
+              <div class="row rv" style="--s:.37"><span class="bul"></span>Send Glenn the renewal numbers</div>
+              <div class="row rv" style="--s:.32"><span class="bul"></span>Confirm the Thursday agenda</div>
+              <div class="row rv" style="--s:.37"><span class="bul"></span>Reply to the vendor quote</div>
+            </article>
+            <article class="panel p-mail" style="--a:.48;--b:.72">
+              <header><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>Mail<span>#GMS</span></header>
+              <h3>To discuss with Glenn</h3>
+              <div class="row rv" style="--s:.51"><span class="bul"></span>Support staffing for next quarter</div>
+              <div class="row rv" style="--s:.56"><span class="bul"></span>Client onboarding checklist</div>
+              <div class="row rv" style="--s:.61"><span class="bul"></span>Laptop refresh quote</div>
+            </article>
+            <article class="panel p-week" style="--a:.72;--b:2">
+              <header><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg>Weekly checklist</header>
+              <div class="row check" style="--s:.76"><span class="box"></span><span class="t">Signed estimates reviewed</span></div>
+              <div class="row check" style="--s:.82"><span class="box"></span><span class="t">QA calls made</span></div>
+              <div class="row check" style="--s:.88"><span class="box"></span><span class="t">Expiring plans checked</span></div>
+              <div class="row"><span class="box"></span><span class="t">QBR checklist touched</span></div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-text">
+        <!-- 1. HERO -->
+        <section class="story-hero">
+          <span class="eyebrow"><i></i><span data-launch-label>Coming soon</span></span>
+          <h1>Push Button Management</h1>
+          <p class="lede">You run your day, not the other way around.</p>
+          <p class="sub">A unique and powerful combination of hardware and software solutions to automate all your routine tasks in an elegant, portable way.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#sample">Get a free sample chapter</a>
+            <a class="btn btn-quiet" href="#notify" data-launch-buy hidden>Buy the book</a>
+          </div>
+        </section>
+
+        <!-- 2. THE PROBLEM AND THE PROMISE -->
+        <section class="chunk">
+          <h2>Inboxes sort by time. Your work doesn&rsquo;t.</h2>
+          <ul class="points">
+            <li>Most of your tools sort by date, not by importance.</li>
+            <li>If you&rsquo;re playing whack-a-mole all day with your lists, you&rsquo;re not winning.</li>
+            <li>This book gives every message one owner and one press. Then it stays out of sight until you need it.</li>
+          </ul>
+          <blockquote class="quote">
+            <p>&ldquo;Chronology is not priority.&rdquo;</p>
+            <cite>From the Introduction</cite>
+          </blockquote>
+          <blockquote class="quote">
+            <p>&ldquo;Now I get through my inbox (usually 80 to 100 non-spam emails by 6 a.m.) in under five minutes every morning.&rdquo;</p>
+            <cite>Harold Mann, from the Preface</cite>
+          </blockquote>
+        </section>
+
+        <!-- 3. WHAT'S INSIDE -->
+        <section class="chunk">
+          <span class="eyebrow"><i></i>What&rsquo;s inside</span>
+          <h2 style="margin-top:.7rem">The system in three ideas</h2>
+          <ol class="three">
+            <li><span class="num">1</span><div><h3>Labels, not folders</h3><p>Tag messages by owner: they archive and return only when you need them.</p></div></li>
+            <li><span class="num">2</span><div><h3>Buttons are decisions</h3><p>Buttons are organized by the kind of work you&rsquo;re doing, not by app. Build your own muscle memory based on how you like to manage.</p></div></li>
+            <li><span class="num">3</span><div><h3>Have meetings prep automatically</h3><p>Combine summaries, lists and meeting notes into a single button press.</p></div></li>
+          </ol>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER LIST -->
+  <section class="section">
+    <div class="wrap">
+      <h2>What you&rsquo;ll build, chapter by chapter</h2>
+      <div class="toc">
+        <div><h3>Part 1</h3><b>Why Push Button Management</b><ul><li>A Day With Push Button Management</li><li>Your First Button in 10 Minutes</li><li>The PBM System at a Glance</li></ul></div>
+        <div><h3>Part 2</h3><b>Foundations</b><ul><li>Labels Not Folders</li><li>Buttons Are Decisions</li><li>Keep Responsibility Simple</li></ul></div>
+        <div><h3>Part 3</h3><b>The Core Button Library</b><ul><li>Let&rsquo;s Make A Button</li><li>1:1 Meeting Tools</li><li>Time Shifting</li><li>Snippet Tools</li><li>Delegation Tools</li></ul></div>
+        <div><h3>Part 4</h3><b>Scaling Up</b><ul><li>Your Folder Organization</li><li>Weekly Checklists</li><li>Direct Reports</li><li>Sales Mode</li><li>Meeting Mode</li></ul></div>
+        <div><h3>Part 5</h3><b>Maintenance</b><ul><li>Make It Virtual</li><li>Noise Reduction</li><li>Sustaining PBM</li><li>Leverage, Not Tools</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE SIGNUP -->
+  <div class="wrap">
+    <section class="signup" id="sample">
+      <div>
+        <h2>Start with a free sample</h2>
+        <p>See a full day with the system, then build your first button in 10 minutes. You&rsquo;ll also get one email the day the book is out.</p>
+      </div>
+      <div>
+        <!-- Kit form 10187953 ("PBM book page: sample + launch list"). -->
+        <form id="sample-form" data-kit-form="10187953" novalidate>
+          <label for="f-name">First name</label>
+          <input id="f-name" name="fields[first_name]" autocomplete="given-name" placeholder="First name" required>
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email_address" type="email" autocomplete="email" inputmode="email" placeholder="Email" required>
+          <button class="btn" type="submit">Send me the sample</button>
+          <p class="err" role="alert" hidden></p>
+          <small>A PDF, straight to your inbox. Unsubscribe anytime.</small>
+        </form>
+        <div class="form-done" role="status" tabindex="-1" hidden>
+          <b>Check your inbox</b>
+          <p>Open the email from Harold Mann and click the button to get your sample. If you don&rsquo;t see it in a minute, check spam.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="wrap about">
+      <img src="../7BE9B67E-3363-43AF-ADF0-B6D36248BE0D_1_102_o.jpeg" width="1536" height="2048" loading="lazy" alt="Harold Mann">
+      <div>
+        <span class="eyebrow"><i></i>About the author</span>
+        <h2 style="margin-top:.7rem">Harold Mann</h2>
+        <p>Harold founded Mann Consulting in 1991 with his brother Alex. The San Francisco IT firm helps around 200 small businesses a year. In 1999 the brothers started ClickTime, one of the earliest software as a service companies.</p>
+        <p>Most productivity advice adds apps and steps. Harold has spent his career taking them away. That approach became the system in this book.</p>
+        <div class="links">
+          <a class="textlink" href="/">More about Harold</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- BUY. Hidden before launch. At launch: fill in BUY in pbm.js and this section appears with buy buttons. -->
+  <div class="wrap" id="buy-wrap" hidden>
+    <section class="notify" id="notify">
+      <div>
+        <h2>It&rsquo;s out</h2>
+        <p>Pick your format.</p>
+      </div>
+      <div class="buy-row" id="buy-row"></div>
+    </section>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="mark" href="/">HAROLD MANN</a>
+      <p class="copy">&copy; 2026 Harold Mann. All rights reserved.</p>
+    </div>
+    <div>
+      <h3>Share this page</h3>
+      <ul>
+        <li><a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fharoldmann.com%2Fpush-button-management%2F" target="_blank" rel="noopener">Share on LinkedIn</a></li>
+        <li><a href="https://x.com/intent/post?text=Push%20Button%20Management%2C%20a%20new%20book%20by%20Harold%20Mann&amp;url=https%3A%2F%2Fharoldmann.com%2Fpush-button-management%2F" target="_blank" rel="noopener">Share on X</a></li>
+        <li><a href="mailto:?subject=Push%20Button%20Management&amp;body=Thought%20you%27d%20like%20this%20book%3A%20https%3A%2F%2Fharoldmann.com%2Fpush-button-management%2F">Send by email</a></li>
+        <li><button type="button" id="copy-link">Copy the link</button></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Harold Mann</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/books/">Books</a></li>
+        <li><a href="/#speaking">Speaking</a></li>
+        <li><a href="/#media">Media</a></li>
+        <li><a href="mailto:hmann@mann.com">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="pbm.js" defer></script>
+</body>
+</html>
