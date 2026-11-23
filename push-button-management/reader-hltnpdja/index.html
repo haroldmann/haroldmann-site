@@ -135,7 +135,7 @@ footer{padding:4rem 0 5rem;text-align:center;color:var(--muted);font-size:.9rem}
 </style>
 </head>
 <body>
-<header class="bar"><div class="wrap"><span class="brand"><i></i>Reader Toolkit</span><nav class="bar-nav"><a href="#start">Start</a><a href="#videos">Walkthroughs</a><a href="#downloads">Downloads</a><a href="#icons">Icons</a><a href="#copy">Prompts &amp; snippets</a></nav></div></header>
+<header class="bar"><div class="wrap"><a class="brand" href="/push-button-management/" style="text-decoration:none"><i></i>Push Button Management <span style="color:var(--muted);font-weight:500">&nbsp;/&nbsp; Reader Toolkit</span></a><nav class="bar-nav"><a href="#start">Start</a><a href="#videos">Walkthroughs</a><a href="#downloads">Downloads</a><a href="#icons">Icons</a><a href="#copy">Prompts &amp; snippets</a></nav></div></header>
 <main>
 <div class="wrap">
  <section class="hero">
@@ -216,7 +216,7 @@ Hi [Name], I wanted to briefly follow up on our previous conversation and see wh
  </div>
 </div></section>
 </main>
-<footer><div class="wrap"><p>Stuck on a step? Email <a href="mailto:feedback@pushbuttonmanagement.com">feedback@pushbuttonmanagement.com</a>.</p><p style="margin-top:.6rem">Harold Mann · Push Button Management · Reader Toolkit</p></div></footer>
+<footer><div class="wrap"><p>Stuck on a step? Email <a href="mailto:feedback@pushbuttonmanagement.com">feedback@pushbuttonmanagement.com</a>.</p><p style="margin-top:.6rem"><a href="/push-button-management/">Visit the book page</a></p><p style="margin-top:.6rem">Harold Mann · Push Button Management · Reader Toolkit</p></div></footer>
 <script>
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.t).innerText;const done=()=>{b.textContent='Copied';b.classList.add('ok');setTimeout(()=>{b.textContent='Copy';b.classList.remove('ok')},1400)};
  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.t));const s=getSelection();s.removeAllRanges();s.addRange(r)};
