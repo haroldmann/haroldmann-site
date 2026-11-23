@@ -46,6 +46,29 @@ h2{font-size:clamp(1.85rem,4vw,2.6rem);line-height:1.07;letter-spacing:-.028em}h
 .cover-wrap::after{content:"";position:absolute;inset:0;border-radius:.2rem .35rem .35rem .2rem;pointer-events:none;background:linear-gradient(90deg,rgba(40,28,12,.22),rgba(40,28,12,.04) 2%,rgba(255,244,220,.22) 3.4%,rgba(255,244,220,0) 6.5%,rgba(255,244,220,0) 97%,rgba(40,28,12,.10));box-shadow:inset 0 0 0 1px rgba(60,42,20,.10)}
 .cover{width:100%;height:100%;border-radius:.2rem .35rem .35rem .2rem}
 .seal{display:table;margin:2.6rem auto 0;background:var(--ink);color:var(--cream);border-radius:999px;padding:.5rem 1rem;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+
+/* hero art: toolkit pieces drifting out of the book */
+@media (min-width:60rem){.hero{grid-template-columns:1fr 1fr}}
+.heroart{position:relative;width:100%;max-width:36rem;margin:0 auto;height:calc(38rem * var(--s,1))}
+.ha-stage{position:absolute;left:0;top:0;width:36rem;height:38rem;transform-origin:top left;transform:scale(var(--s,1))}
+.ha-paths{position:absolute;inset:0;width:100%;height:100%}.ha-paths path{fill:none;stroke:rgba(167,62,30,.22);stroke-width:.35;stroke-dasharray:1 1.4}
+.heroart .cover-wrap{position:absolute;left:0;bottom:3rem;--cw:13rem;transform:rotate(-4deg);z-index:3;margin:0}
+.heroart .seal{position:absolute;left:2.6rem;bottom:0;margin:0;display:block;z-index:3}
+.fly,.kk{position:absolute;z-index:2;transform:rotate(calc(var(--r,0) * 1deg))}
+.fly .fl{border-radius:.9rem;background:var(--paper);box-shadow:0 1px 2px rgba(21,24,29,.08),0 1.2rem 2.4rem -1rem rgba(21,24,29,.35);border:1px solid rgba(21,24,29,.06);overflow:hidden}
+.fly.dark .fl{background:var(--ink);color:#F5F2EC;border-color:transparent}
+.kk{width:4.6rem;height:4.6rem}.kk .fl{width:100%;height:100%;border-radius:1rem;overflow:hidden;box-shadow:0 5px 0 #0B0B0C,0 1.2rem 2rem -1rem rgba(0,0,0,.5)}.kk img{width:100%;height:100%;display:block}
+.vthumb{position:relative}.vthumb img{display:block;width:100%;height:auto}
+.play{position:absolute;left:50%;top:50%;width:2.6rem;height:2.6rem;margin:-1.3rem 0 0 -1.3rem;border-radius:50%;background:var(--key);box-shadow:0 3px 0 var(--key-side);display:grid;place-items:center}
+.vcap{padding:.55rem .75rem;font-size:.72rem;font-weight:700}.vcap span{color:var(--muted);font-weight:500}
+.mini-h{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.wk{border-collapse:collapse;font-size:.62rem;width:100%}.wk th{font-weight:500;color:var(--muted)}.wk td,.wk th{text-align:center;padding:2px 0}.wk td:first-child{text-align:left}
+.wk .g{background:#b7e1cd;font-weight:700}.wk .y{background:#fce8b2;font-weight:700}.wk .r{background:#f4c7c3;font-weight:700}
+.cbtn{font-size:.6rem;font-weight:700;background:var(--ink);color:#fff;border-radius:.35rem;padding:.15rem .45rem}
+.heroart.live .fl{animation:bob 7s ease-in-out infinite alternate}
+.heroart.live .fly:nth-child(odd) .fl,.heroart.live .kk:nth-child(odd) .fl{animation-duration:8.5s;animation-delay:-2s}
+@keyframes bob{from{transform:translateY(-3px)}to{transform:translateY(4px)}}
+@media (prefers-reduced-motion:reduce){.heroart.live .fl{animation:none}}
 /* sections */
 .section{padding:5rem 0;border-top:1px solid var(--line)}.section-head{max-width:40rem}.section-head p{margin-top:.9rem;font-size:1.0625rem;color:var(--muted)}
 .section-head h2{margin-top:.7rem}
@@ -123,7 +146,23 @@ footer{padding:4rem 0 5rem;text-align:center;color:var(--muted);font-size:.9rem}
    <div class="actions"><a class="dl-p" href="files/PBM%20Reader%20Toolkit%20%28everything%29.zip" download><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg><span>Download everything</span><em>8.0 MB</em></a><a class="btn btn-quiet" href="#videos">Watch the walkthroughs</a></div>
    <p class="private"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg>This page is just for readers. Please keep the link to yourself.</p>
   </div>
-  <div style="position:relative"><div class="cover-wrap"><img class="cover" src="../pbm-cover-front.jpg" width="1200" height="1800" alt="Push Button Management book cover"></div><span class="seal">Reader edition</span></div>
+  <div class="heroart" aria-hidden="false"><div class="ha-stage">
+<svg class="ha-paths" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M18 70 C 30 45, 55 25, 98 6"/><path d="M22 74 C 45 72, 70 70, 96 66"/></svg>
+<div class="fly" data-at="0.04" data-r="3" style="right:0;top:0;width:15.5rem"><div class="fl"><div class="vthumb"><img src="media/poster-2.jpg" alt="" width="1280" height="720"><span class="play"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M8 5v14l11-7z" fill="#fff"/></svg></span></div><div class="vcap">Build a Multi Action button <span>1:24</span></div></div></div>
+<div class="fly" data-at="0.12" data-r="-5" style="left:4.2rem;top:6.4rem;width:12rem"><div class="fl" style="padding:.6rem .7rem">
+ <div class="mini-h">Glenn Weekly</div>
+ <table class="wk"><tr><td></td><th>2/1</th><th>2/8</th><th>2/15</th></tr><tr><td><b>Week</b></td><td class="g">100%</td><td class="y">89%</td><td class="r">67%</td></tr><tr><td>Estimates</td><td>y</td><td>y</td><td>y</td></tr><tr><td>QA calls</td><td>y</td><td>-</td><td></td></tr><tr><td>Invoices</td><td>y</td><td>y</td><td>y</td></tr></table></div></div>
+<div class="kk" data-at="0.2" data-r="8" style="right:8.2rem;top:13.6rem"><div class="fl"><img src="media/key-gms.png" alt=""></div></div>
+<div class="kk" data-at="0.26" data-r="-6" style="right:1.4rem;top:15rem;width:3.9rem;height:3.9rem"><div class="fl"><img src="media/key-am.png" alt=""></div></div>
+<div class="kk" data-at="0.32" data-r="-10" style="left:17.2rem;top:19.8rem;width:3.4rem;height:3.4rem"><div class="fl"><img src="media/key-inbox.png" alt=""></div></div>
+<div class="fly" data-at="0.4" data-r="2" style="right:0;top:22.5rem;width:14.5rem"><div class="fl" style="padding:.7rem .8rem">
+ <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:.72rem">Quick Check-In</b><span class="cbtn">Copy</span></div>
+ <div style="font-size:.64rem;line-height:1.45;color:#3c3934;margin-top:.35rem">Hi [Name], I wanted to quickly check in and see how things are going on your end&hellip;</div>
+ <div style="font-size:.58rem;color:var(--muted);margin-top:.35rem">;pbmcheckin</div></div></div>
+<div class="fly dark" data-at="0.48" data-r="-4" style="left:14.6rem;top:27.6rem;width:9.6rem"><div class="fl" style="padding:.65rem .75rem">
+ <div style="font-size:.55rem;font-weight:700;letter-spacing:.12em;color:#F09A7A;margin-bottom:.3rem">ICON PROMPT</div><div style="font:.62rem/1.45 ui-monospace,SFMono-Regular,Menlo,monospace">Create a single flat, strictly monochromatic icon for a small square hardware button&hellip;</div></div></div>
+<div class="cover-wrap"><img class="cover" src="../pbm-cover-front.jpg" width="1200" height="1800" alt="Push Button Management book cover"></div><span class="seal">Reader edition</span>
+</div></div>
  </section>
 </div>
 <section class="section" id="start"><div class="wrap">
@@ -182,6 +221,16 @@ Hi [Name], I wanted to briefly follow up on our previous conversation and see wh
 document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',()=>{const t=document.getElementById(b.dataset.t).innerText;const done=()=>{b.textContent='Copied';b.classList.add('ok');setTimeout(()=>{b.textContent='Copy';b.classList.remove('ok')},1400)};
  const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.t));const s=getSelection();s.removeAllRanges();s.addRange(r)};
  try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}}));
+
+(function(){const ha=document.querySelector('.heroart');if(!ha)return;const st=ha.querySelector('.ha-stage');
+ const fit=()=>{const s=Math.min(1,ha.clientWidth/st.offsetWidth);ha.style.setProperty('--s',s)};fit();addEventListener('resize',fit);
+ ha.querySelectorAll('[data-r]').forEach(e=>e.style.setProperty('--r',e.dataset.r));
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches||!Element.prototype.animate)return;
+ ha.classList.add('live');const D=20000,ox=170,oy=330;
+ ha.querySelectorAll('[data-at]').forEach(e=>{const a=+e.dataset.at,r=+e.dataset.r,cx=e.offsetLeft+e.offsetWidth/2,cy=e.offsetTop+e.offsetHeight/2;
+  const from=`translate(${ox-cx}px,${oy-cy}px) rotate(-4deg) scale(.35)`,to=`translate(0,0) rotate(${r}deg) scale(1)`;
+  e.animate([{offset:0,transform:from,opacity:0},{offset:a,transform:from,opacity:0},{offset:a+.02,opacity:1},{offset:Math.min(a+.14,.6),transform:to,opacity:1},{offset:.86,transform:to,opacity:1},{offset:.95,transform:`translate(0,-10px) rotate(${r}deg) scale(.98)`,opacity:0},{offset:1,transform:from,opacity:0}],{duration:D,iterations:Infinity,easing:'cubic-bezier(.22,.61,.36,1)'})});
+})();
 const pl=document.getElementById('player');
 document.querySelectorAll('.vt').forEach(v=>v.addEventListener('click',()=>{document.querySelectorAll('.vt').forEach(x=>{x.classList.toggle('on',x===v);x.setAttribute('aria-pressed',x===v)});
  pl.poster=v.dataset.poster;pl.src=v.dataset.src;pl.play().catch(()=>{});pl.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'})}));
